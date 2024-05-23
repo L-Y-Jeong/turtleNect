@@ -1,9 +1,39 @@
 /* Camera view styles */
 .camera-view {
   border: 2px solid #727272 !important;
-  padding: 200px;
-  margin : 30px 100px 0px 100px;
+  padding: 0;
+  margin: 10px 100px 0px 100px;
   border-radius: 30px;
   font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 450px;
+  width : 900px;
 }
 
+/* Button container styles */
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 100px;
+  margin-top: 10px;
+}
+
+.control-button {
+  padding: 8px 20px;
+  font-size: 16px;
+  background-color: #404040;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top : -20px;
+  margin-right: 100px;
+  font-family: "IBM+Plex+Sans+KR";
+}
+
+.control-button:hover {
+  background-color: #FF6000;
+}
