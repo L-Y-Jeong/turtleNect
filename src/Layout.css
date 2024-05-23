@@ -1,0 +1,124 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  background-color: #404040;
+  color: rgb(206, 206, 206);
+  display: flex;
+  justify-content: flex-end;
+  height : 35px;
+}
+
+
+.nickname {
+  font-size: 15px;
+  font-family: 'Gowun Dodum';
+}
+
+.username {
+  color: #FF6000;
+}
+
+.header-text-button {
+  background: none;
+  border: none;
+  color: rgb(206, 206, 206);
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: 'Gowun Dodum';
+}
+
+.header-text-button:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  color: rgb(195, 195, 195); /* 파이프 색상 설정 */
+  margin: 0 1px; /* 양쪽 버튼과의 여백 설정 */
+}
+
+.logo-container {
+  display: block;
+  text-align: left;
+  padding: 15px 0;
+  padding-left: 20px;
+  border-bottom: 1px solid #d3d3d3; /* 하단에 검은색 실선 추가 */
+  margin : 0px 30px 20px 30px; /*실선*/
+}
+
+
+
+.logo {
+  display: inline;
+  width: 130px;
+  height: auto;
+}
+
+.main-wrapper {
+  display: flex;
+  flex: 1;
+}
+
+
+.icon {
+  height: 20px; /* 이미지 높이 설정 */
+  width: 20px; /* 이미지 너비 설정 */
+  vertical-align: middle; /* 텍스트와 이미지 정렬 */
+  margin-right: 30px; /* 텍스트와의 여백 설정 */
+  margin-left : 25px;
+}
+
+
+.sidebar {
+  width: 230px;
+  background-color: #FFF;
+  padding-left: 30px;
+  padding-top: 100px;
+}
+
+.sidebar ul {
+  list-style: none; /* 리스트 스타일 제거 */
+}
+
+.sidebar-item-text {
+  display: inline; /* 기본적으로 텍스트는 보여줍니다 */
+  font-family : 'Gowun Dodum'
+}
+
+@media (max-width: 1000px) { /* 화면 크기가 768px 이하일 경우 */
+  .sidebar-item-text {
+    display: none; /* 텍스트를 숨깁니다 */
+  }
+}
+
+
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  height: 65px;
+}
+
+.sidebar-item:hover {
+  border: 1px solid #FF6000;
+}
+
+.sidebar-item.active {
+  background-color: #FFD9A9;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.footer {
+  background-color: #FFF2E1;
+  height: 50px;
+}

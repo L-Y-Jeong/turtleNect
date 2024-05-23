@@ -1,0 +1,9 @@
+/* Camera view styles */
+.camera-view {
+  border: 2px solid #727272 !important;
+  padding: 200px;
+  margin : 30px 100px 0px 100px;
+  border-radius: 30px;
+  font-size: 25px;
+}
+
