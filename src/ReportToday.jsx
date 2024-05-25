@@ -10,19 +10,26 @@ function ReportToday() {
   };
 
   const warnings = [
-    '1 | 13:05',
-    '2 | 14:45',
-    '3 | 14:54',
-    '4 | 15:06',
-    '5 | 15:23',
-    '6 | 15:40',
-    '7 | 16:00',
-    '8 | 16:15',
-    '9 | 16:30',
-    '10 | 16:45',
-    '11 | 17:00',
-    '12 | 17:15'
+    '13:05',
+    '14:45',
+    '14:54',
+    '15:06',
+    '15:23',
+    '15:40',
+    '16:00',
+    '16:15',
+    '16:30',
+    '16:45',
+    '17:00',
+    '17:15'
   ];
+
+  const war_cnt = warnings.length;
+
+  const weekData = {
+    dates: ['5.24', '5.25', '5.26', '5.27', '5.28', '5.29', '5.30'],
+    warnings: [11, 32, 8, 14, 3, 21, 12],
+  };
 
   return (
     <div className="report-analysis">
@@ -45,7 +52,7 @@ function ReportToday() {
           <div className="circle-container">
             <div className="circle">
               <div className="inner-circle">
-                <span className="count">12</span>
+                <span className="count">{war_cnt}</span>
                 <span className="count-label">count</span>
               </div>
             </div>
@@ -54,22 +61,19 @@ function ReportToday() {
             <div className="timeline-header">time line</div>
             <div className="timeline-line"></div>
             <div className="timeline-list">
-              {warnings.map((warning, index) => {
-                const [count, time] = warning.split(' | ');
-                return (
-                  <div key={index} className="timeline-item">
-                    <span className="item-count">{count}</span>
-                    <span className="item-divider">|</span>
-                    <span className="item-time">{time}</span>
-                  </div>
-                );
-              })}
+              {warnings.map((time, index) => (
+                <div key={index} className="timeline-item">
+                  <span className="item-count">{index + 1}</span>
+                  <span className="item-divider">|</span>
+                  <span className="item-time">{time}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
       <div className={`tab-content ${activeTab === 'week' ? 'active' : ''}`}>
-        <ReportWeek />
+        <ReportWeek data={weekData} />
       </div>
     </div>
   );
