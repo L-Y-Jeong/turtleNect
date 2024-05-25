@@ -1,21 +1,43 @@
-.report-container {
+.report-week {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100%;
+    margin-top : 10px;
   }
   
-  .weekly-chart {
-    width: 80%;
-    height: 400px;
-    border: 1px solid #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .chart-container {
+    width: 90%;
+    height: 280px; /* 그래프 크기 조정 */
   }
   
-  .chart-placeholder {
+  .statistics-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .statistic-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #9d9d9d;
+    border-radius: 5px;
+    width: 150px;
+    height : 80px;
+    margin: 40px;
+  }
+  
+  .statistic-label {
+    font-size: 18px;
+    color: #404040;
+  }
+  
+  .statistic-value {
+    margin-top: 5px;
     font-size: 24px;
-    color: #666;
+    font-weight: bold;
+    color: #FFA559;
   }
   
