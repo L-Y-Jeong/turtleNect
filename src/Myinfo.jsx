@@ -7,13 +7,13 @@ const Myinfo = () => {
     nickname: '',
     id: '',
     password: '',
+    phone: '',
     email: '',
     gender: 'none',
     age: '',
   });
 
   const [errors, setErrors] = useState({
-    password: false,
     email: false,
   });
 
@@ -22,12 +22,12 @@ const Myinfo = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // 사용자 정보를 로드하는 함수 (예시 데이터 사용)
     const loadUserInfo = () => {
       const userInfo = {
         nickname: '내목에베레스트',
         id: 'myneckishigh',
-        password: 'encryptedpassword', // 예시 암호화된 비밀번호
+        password: 'encryptedpassword',
+        phone: '01012341234',
         email: 'myneckishigh@gmail.com',
         gender: 'none',
         age: '23',
@@ -54,26 +54,15 @@ const Myinfo = () => {
     return re.test(email);
   };
 
-  const validatePassword = (password) => {
-    const re = /(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/;
-    return re.test(password);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const emailValid = validateEmail(form.email);
-    const passwordValid = isPasswordChanged ? validatePassword(form.password) : true;
-
-    console.log('Email Valid:', emailValid);
-    console.log('Password Valid:', passwordValid);
 
     setErrors({
       email: !emailValid,
-      password: !passwordValid,
     });
 
-    if (emailValid && passwordValid) {
-      // 사용자 정보 업데이트 로직 (예시)
+    if (emailValid) {
       alert('저장이 완료되었습니다.');
     }
   };
@@ -111,9 +100,13 @@ const Myinfo = () => {
             value={form.password}
             onChange={handleChange}
           />
-          {isPasswordChanged && !validatePassword(form.password) && (
-            <p className="error">*영문, 숫자, 특수문자를 모두 포함해야 합니다.</p>
-          )}
+          <label>휴대폰 번호</label>
+          <input
+            type="text"
+            name="phone"
+            value={form.phone}
+            onChange={handleChange}
+          />
           <label>이메일</label>
           <input
             type="email"
@@ -149,7 +142,7 @@ const Myinfo = () => {
           />
           <div className="button-container">
             <button type="submit" className="save-button">저장</button>
-            <button type="button" className="home-button" onClick={() => navigate('/home')}>홈으로</button>
+            <button type="button" className="home-button" onClick={() => navigate('/app/home')}>홈으로</button>
           </div>
         </form>
       </div>
