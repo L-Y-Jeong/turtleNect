@@ -16,7 +16,6 @@ const Signup = () => {
   });
 
   const [errors, setErrors] = useState({
-    password: false,
     email: false,
   });
 
@@ -33,23 +32,17 @@ const Signup = () => {
     return re.test(email);
   };
 
-  const validatePassword = (password) => {
-    const re = /(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])/;
-    return re.test(password);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const emailValid = validateEmail(form.email);
-    const passwordValid = validatePassword(form.password);
+
     setErrors({
       email: !emailValid,
-      password: !passwordValid,
     });
-    if (emailValid && passwordValid) {
-      // handle signup logic here
+
+    if (emailValid) {
       alert('회원가입에 성공했습니다.');
-      navigate('/login'); // 성공적으로 회원가입하면 로그인 화면으로 이동
+      navigate('/login');
     }
   };
 
@@ -68,7 +61,7 @@ const Signup = () => {
               placeholder="아이디" 
               value={form.id} 
               onChange={handleChange} 
-              style={{ backgroundImage: 'url(img/id_icon.png)' }} /* 예시 이미지 경로 */
+              style={{ backgroundImage: 'url(img/id_icon.png)' }}
             />
             <input 
               type="password" 
@@ -76,16 +69,15 @@ const Signup = () => {
               placeholder="비밀번호" 
               value={form.password} 
               onChange={handleChange} 
-              style={{ backgroundImage: 'url(img/pw_icon.png)' }} /* 예시 이미지 경로 */
+              style={{ backgroundImage: 'url(img/pw_icon.png)' }}
             />
-            {errors.password && <p className="error">*8~16자의 영문, 숫자, 특수문자를 사용해 주세요.</p>}
             <input 
               type="text" 
               name="phone" 
               placeholder="휴대폰 번호" 
               value={form.phone} 
               onChange={handleChange} 
-              style={{ backgroundImage: 'url(img/phone_icon.png)' }} /* 예시 이미지 경로 */
+              style={{ backgroundImage: 'url(img/phone_icon.png)' }}
             />
             <input 
               type="email" 
@@ -93,7 +85,7 @@ const Signup = () => {
               placeholder="이메일 주소" 
               value={form.email} 
               onChange={handleChange} 
-              style={{ backgroundImage: 'url(img/email_icon.png)' }} /* 예시 이미지 경로 */
+              style={{ backgroundImage: 'url(img/email_icon.png)' }}
             />
             {errors.email && <p className="error">*유효한 이메일 주소가 아닙니다.</p>}
             <input 
@@ -102,7 +94,7 @@ const Signup = () => {
               placeholder="닉네임" 
               value={form.nickname} 
               onChange={handleChange} 
-              style={{ backgroundImage: 'url(img/nickname_icon.png)' }} /* 예시 이미지 경로 */
+              style={{ backgroundImage: 'url(img/nickname_icon.png)' }}
             />
             <div className="gender-container">
               <button 
@@ -127,7 +119,7 @@ const Signup = () => {
               placeholder="나이" 
               value={form.age} 
               onChange={handleChange} 
-              style={{ backgroundImage: 'url(img/age_icon.png)' }} /* 예시 이미지 경로 */
+              style={{ backgroundImage: 'url(img/age_icon.png)' }}
             />
           </div>
           <button 
